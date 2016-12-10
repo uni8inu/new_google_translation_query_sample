@@ -26,8 +26,9 @@ target = "ja"
 # new translation needed
 model = "nmt"
 
-# must be less than 2K characters.
+# translate target chars / must be less than 2K characters.
 # see : https://cloud.google.com/translate/docs/translating-text#translate-translate-text-python
+# this is sample chars from : http://web-tan.forum.impressrd.jp/e/2016/11/17/24396
 q = "Machine translation is by no means solved. GNMT can still make significant errors that a human translator would never make, like dropping words and mistranslating proper names or rare terms, and translating sentences in isolation rather than considering the context of the paragraph or page. There is still a lot of work we can do to serve our users better. However, GNMT represents a significant milestone. We would like to celebrate it with the many researchers and engineers—both within Google and the wider community—who have contributed to this direction of research in the past few years." # 長いので省略してます
 
 payload = {
@@ -44,7 +45,7 @@ headers = {
 
 response = requests.get(url,params=payload,headers=headers)
 
-# JSONデコード
+# JSON decode
 jObj = json.loads(response.text)
 
 print(jObj)
